@@ -1,0 +1,52 @@
+/* Estilos Gerais */
+body {
+    background-color: #f8f9fa; /* Um cinza claro para o fundo */
+    color: #333; /* Cor do texto padrão */
+    font-family: 'Arial', sans-serif; /* Fonte padrão */
+}
+
+header {
+    background-color: #007bff; /* Um azul padrão do Bootstrap */
+    box-shadow: #343a40;
+    color: white; /* Cor do texto no cabeçalho */
+}
+
+.navbar-brand {
+    font-size: 1.5em; /* Tamanho da fonte para o nome do portfólio no navbar */
+}
+
+.nav-link {
+    color: white; /* Cor dos links no navbar */
+    transition: color 0.3s ease-in-out; /* Transição suave para mudança de cor */
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: #adb5bd; /* Cor ao passar o mouse e focar nos links */
+}
+
+/* Estilização principal */
+main {
+    padding: 20px;
+    background-color: white; /* Fundo branco para o conteúdo principal */
+    border-radius: 8px; /* Borda arredondada para o container principal */
+    box-shadow: 0 6px 10px rgba(0,0,0,0.1); /* Sombra para dar profundidade */
+    margin-top: -40px; /* Para sobrepor levemente sobre o navbar */
+}
+
+h1 {
+    color: #007bff; /* Cor para o título principal */
+}
+
+p {
+    line-height: 1.6; /* Espaçamento da linha para parágrafo */
+}
+
+/* Estilos para o rodapé */
+footer {
+    background-color: #343a40; /* Um cinza escuro para o rodapé */
+    color: #ced4da; /* Cor do texto no rodapé */
+}
+
+.container > span {
+    font-size: 0.9em;
+}

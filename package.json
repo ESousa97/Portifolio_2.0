@@ -1,0 +1,21 @@
+{
+  "name": "portifolio_2.0",
+  "version": "1.0.0",
+  "main": "index.js",
+"scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
