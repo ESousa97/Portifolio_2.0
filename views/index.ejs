@@ -1,51 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="path/to/creative-theme.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <title>Meu Portfólio</title>
 </head>
-<body>
-    <header>
-        <!-- Bootstrap Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Meu Portfólio</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<body id="page-top" class="light-mode">
+        <!-- Masthead-->
+    <header class="masthead">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top">José Enoque</a>
+            <!-- Botão para alternar o tema -->
+            <button id="theme-switcher" class="btn btn-secondary">
+                <i id="theme-icon" class="bi bi-moon"></i>
+            </button>                  
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sobre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Projetos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contato</a>
-                    </li>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experiência</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projetos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#softskills">Soft Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
                 </ul>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
-    <main class="container mt-5">
-        <h1>Bem-vindo ao meu portfólio!</h1>
-        <p>Este é um exemplo de texto para seu portfólio.</p>
-    </main>
+<main class="container mt-5">
+    <section id="home" class="py-5" data-animation="animate__fadeIn">
+        <div class="typewriter-container">
+            <div class="typewriter" data-animation="animate__fadeInLeft">
+                <h1 id="typewriter-text" class="hidden-text"></h1>
+            </div>
+        </div>
+        <div data-animation="animate__fadeInRight">
+            <h2 id="Frase">Transformando desafios em inovações, lidero com soluções que não apenas resolvem problemas, mas redefinem a eficiência operacional.</h2>
+        </div>
+    </section>
+
+    <!-- About Section-->
+    <section id="about" class="py-5" data-animation="animate__fadeIn">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Sobre</h2>
+                <h3 class="section-subheading text-muted">Conheça mais sobre mim.</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p data-animation="animate__fadeInRight">Olá! Meu nome é José Enoque, tenho 27 anos e sou um profissional de TI com experiência consolidada de mais de dois anos. Atualmente, atuo como Analista de Automação de Processos Pleno na Positivo Tecnologia, em São Paulo, desempenhando minhas funções de maneira remota desde janeiro de 2024. Iniciei minha carreira em julho de 2022 como Técnico de Suporte N1 e rapidamente evoluí para posições de maior responsabilidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section-->
+    <section id="experience" class="bg-light py-5" data-animation="animate__fadeIn">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase" data-animation="animate__fadeInLeft">Experiência</h2>
+                <h3 class="section-subheading text-muted">Minhas experiências profissionais.
+                </h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p data-animation="animate__fadeInRight">Positivo Tecnologia - Analista de       Automação de Processos Pleno
+                        Liderança de equipe no desenvolvimento e automação de processos, documentação e resolução de incidentes técnicos.
+                        <br>
+                        Responsável pelo suporte técnico de níveis 2 a 3, atendendo sistemas como Degust, Aloha e Alive, abrangendo redes de lojas em todo o Brasil.
+                        <br>
+                        Implementação de uma nova base de dados para o ServiceDesk, elevando significativamente a eficiência e a intuitividade dos processos.
+                        <br>
+                        Tecnocomp Tecnologia e Serviços - Analista de Suporte N2
+                        <br>
+                        Suporte técnico para sistemas críticos e gerenciamento de incidentes.
+                        <br>
+                        Liderança na criação e documentação de procedimentos técnicos, além da instalação de servidores e terminais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section-->
+    <section id="habilidades" class="py-5" data-animation="animate__fadeIn">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase" data-animation="animate__fadeInLeft">Habilidades</h2>
+                <h3 class="section-subheading text-muted">Minhas habilidades técnicas e competências.</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p data-animation="animate__fadeInRight">Desenvolvimento Web Full Stack: Domínio em Next.js, React, JavaScript e TypeScript.
+                        Autenticação e Segurança: Experiência com NextAuth, implementação de autenticação social e autenticação 2FA.
+                        Gerenciamento de Estado e Rotas: Proficiência em React Router, useState e useEffect.
+                        UX/UI Design: Especialização em design responsivo e adaptativo, utilizando Material-UI.
+                        Scripting e Automação: Competência em automação de tarefas usando scripts em batch e PowerShell.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section-->
+    <section id="projects" class="bg-light py-5" data-animation="animate__fadeIn">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase" data-animation="animate__fadeInLeft">Projetos</h2>
+                <h3 class="section-subheading text-muted">Meus principais projetos.</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p data-animation="animate__fadeInRight">Descrição dos meus principais projetos, incluindo desenvolvimento web e automação de processos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soft Skills Section -->
+    <section id="softskills" class="py-5" data-animation="animate__fadeIn">
+        <div class="container">
+            <div class="text-center">
+                 <h2 class="section-heading text-uppercase" data-animation="animate__fadeInLeft">Soft Skills</h2>
+                 <h3 class="section-subheading text-muted">Minhas competências interpessoais</h3>
+            </div>
+             <div class="row">
+                  <div class="col-lg-12">
+                     <p data-animation="animate__fadeInRight">
+                           Proatividade, flexibilidade, resiliência e empatia, com uma atitudsempre positiva. Excelente capacidade de aprendizado rápidoadaptação a novos ambientes e busca por soluções inovadoras eficientes.
+                    </p>
+                   </div>
+              </div>
+          </div>
+     </section>
+
+    <!-- Contact Section-->
+    <section id="contact" class="py-5" data-animation="animate__fadeIn">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase" data-animation="animate__fadeInLeft">Contato</h2>
+                <h3 class="section-subheading text-muted">Entre em contato comigo.</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p data-animation="animate__fadeInRight">Detalhes de como entrar em contato comigo, incluindo e-mail e redes sociais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
-            <span class="text-muted">Coloque o texto do rodapé aqui.</span>
+            <span class="text-muted">© 2024 José Enoque. Todos os direitos reservados.</span>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="/js/script.js"></script>
+    <script src="/js/typeWrite.js"></script>
+    <script src="/js/theme.js"></script>
 </body>
 </html>

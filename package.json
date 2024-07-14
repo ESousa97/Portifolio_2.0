@@ -2,10 +2,10 @@
   "name": "portifolio_2.0",
   "version": "1.0.0",
   "main": "index.js",
-"scripts": {
+  "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js"
-},
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
