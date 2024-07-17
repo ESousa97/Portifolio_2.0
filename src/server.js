@@ -3,15 +3,13 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Definir o mecanismo de visualização para usar EJS
-app.set('view engine', 'ejs');
-
-// Servir arquivos estáticos. O path.join garantirá o caminho correto
+// Definir onde os arquivos estáticos serão servidos
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-// Rota principal que renderiza a página inicial
+// Rota principal que serve a página inicial
 app.get('/', (req, res) => {
-    res.render('index');  // Supõe-se que existe um arquivo 'index.ejs' na pasta 'views'
+    // Corrigindo o caminho para alcançar a pasta views a partir de src
+    res.sendFile(path.join(__dirname, '..', 'views', 'index.html'));
 });
 
 // Inicia o servidor na porta especificada

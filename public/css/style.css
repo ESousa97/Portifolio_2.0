@@ -1,210 +1,270 @@
-/* Definição de cores base e variáveis para modo claro/escuro */
-:root {
-    --text-color-light: #212529; /* Cor preta suavizada, padrão do Bootstrap para texto claro */
-    --background-color-light: #f8f9fa; /* Cinza claro do Bootstrap para fundo claro */
-    --text-color-dark: #f8f9fa; /* Branco suavizado, padrão do Bootstrap para texto escuro */
-    --background-color-dark: #343a40; /* Cinza escuro, quase preto do Bootstrap para fundo escuro */
-    --link-hover-color: #007bff; /* Azul vibrante do Bootstrap para links ao passar o mouse */
-    --effect-text-color: #dc3545; /* Vermelho do Bootstrap para frases de efeito em ambos os modos */
-    --navbar-bg-light: rgba(255, 255, 255, 0.85); /* Fundo mais sólido para a navbar no modo claro */
-    --navbar-bg-dark: rgba(52, 58, 64, 0.85); /* Fundo mais sólido para a navbar no modo escuro */
-    --header-bg-light: #e9ecef; /* Cinza claro do Bootstrap para o fundo do header no modo claro */
-    --header-bg-dark: #495057; /* Cinza mais escuro do Bootstrap para o fundo do header no modo escuro */
+#Frase .word {
+    display: inline; /* Garante que as palavras quebrem corretamente */
+    white-space: nowrap; /* Impede que a palavra quebre em meio */
 }
 
-/* Aplica modo claro ou escuro baseado em uma classe no body */
-body.light-mode {
-    color: var(--text-color-light);
-    background-color: var(--background-color-light); /* Aplica a cor de fundo azul muito claro no modo claro */
+#Frase .letter {
+    transition: transform 0.4s ease;
+    display: inline-block; /* Mantém o comportamento de bloco para transformações */
+    cursor: pointer;
+    transform-origin: bottom center;
 }
 
-body.dark-mode {
-    color: var(--text-color-dark);
-    background-color: var(--background-color-dark); /* Aplica a cor de fundo verde Teal escuro no modo escuro */
+#Frase .letter.hovered {
+    transform: scale(1.5);
+    color: #3498db;
+    z-index: 10;
 }
 
-/* Estilos Gerais */
-body, html {
+
+/* Ajuste da margem para o conteúdo principal */
+.content {
+    margin-left: 80px; /* Ajuste este valor para a largura da sua sidebar */
+}
+
+html {
+    overflow-x: hidden;
+}
+
+/* Estilos da sidebar */
+.sidebar {
     height: 100%;
-    scroll-behavior: smooth;
-    font-family: 'Arial', sans-serif; /* Define uma fonte padrão */
-}
-
-header {
-    color: var(--text-color-light);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para o cabeçalho */
-    background-color: var(--header-bg-light); /* Cor de fundo do header no modo claro */
-}
-
-body.dark-mode header {
-    background-color: var(--header-bg-dark); /* Cor de fundo do header no modo escuro */
-}
-
-.navbar {
-    padding: 10px 15px 15px 10px; /* Padding para melhorar o espaçamento interno */
-    transition: background-color 0.3s ease; /* Transição suave para mudança de fundo */
-}
-
-body.dark-mode .navbar {
-    background-color: var(--navbar-bg-dark); /* Cor de fundo suave no modo escuro */
+    width: 80px; /* mantemos a largura estreita */
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: width 0.5s ease; /* Suaviza a transição de largura */
+    padding-top: 20px; /* ajuste no padding superior */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza todo o conteúdo na coluna */
 }
 
 .navbar-brand {
-    font-size: 1.0em; /* Aumenta o tamanho da fonte da marca */
-    font-weight: bold;
-    color: var(--text-color-light); /* Define a cor da marca */
-    transition: none; /* Remove transições */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24px;
+    margin-bottom: 30px;
+    animation: pulse 2s infinite; /* Adiciona pulsação ao logotipo */
 }
 
-.navbar-brand:hover, .navbar-brand:focus {
-    color: var(--text-color-light); /* Garante que a cor não mude */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.logo-resto {
+    color: #818181; /* cor mais suave para o resto do nome */
+    font-size: 18px;
+}
+
+/* Ajustes para os links da sidebar */
+ul.nav {
+    width: 100%; /* Ajusta a largura dos links para ocupar toda a sidebar */
+    padding: 0; /* Remove padding padrão */
+}
+
+/* Estilos para os links sociais */
+.sidebar .nav-item:last-child {
+    margin-bottom: 20px; /* adiciona espaço abaixo do último item */
 }
 
 .nav-link {
-    color: var(--text-color-light);
-    font-size: 1.0em; /* Aumenta o tamanho da fonte dos links */
-    transition: color 0.3s ease-in-out, transform 0.3s ease; /* Adiciona transição suave */
-}
-
-.nav-link:hover, .nav-link:focus {
-    color: var(--link-hover-color);
-    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
-}
-
-main {
-    padding: 60px 20px; /* Aumento de padding para espaçamento interno maior */
-    background-color: var(--background-color-light);
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-}
-
-body.dark-mode main {
-    background-color: var(--background-color-dark);
-}
-
-#home {
-    padding: 0px 10px 20px 0px; /* Espaçamento vertical dentro da seção */
-    text-align: center; /* Centraliza o texto na seção */
-}
-
-.typewriter-container {
-    min-height: 400px; /* Define uma altura mínima para o contêiner do efeito de digitação */
+    color: #818181; /* cor padrão para ícones */
     display: flex;
-    align-items: left;
-    justify-content: left;
+    justify-content: center; /* centraliza os ícones horizontalmente */
+    height: 50px; /* altura padrão para todos os links */
+    transition: transform 0.3s ease; /* Adiciona transição suave */
 }
 
-.typewriter h1 {
-    display: inline-block;
-    white-space: pre-wrap;
-    overflow: hidden;
-    border-right: 2px solid var(--text-color-light);
-    animation: blink-caret 0.5s step-end infinite;
-    font-size: 1.5em;
-    margin-top: 100px;
+.nav-item {
+    display: flex;
+    justify-content: center;
+    height: 50px; /* altura padrão para todos os links */
+    transition: transform 0.3s ease; /* Adiciona transição suave */
 }
 
-@keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: var(--text-color-light); }
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* destaque ao passar o mouse */
+    color: #f1f1f1;
+    transform: scale(1.1); /* Aumenta o ícone ao passar o mouse */
 }
 
-.hidden-text {
-    visibility: hidden;
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* destaque ao passar o mouse */
+    color: #f1f1f1;
+    transform: scale(1.1); /* Aumenta o ícone ao passar o mouse */
 }
 
-#Frase {
-    font-size: 2.5em; /* Tamanho maior para o subtítulo */
-    color: var(--effect-text-color);
-    text-align: right; /* Alinha o texto à direita */
-    margin-bottom: 40px; /* Espaçamento abaixo do subtítulo */
-    min-height: 400px;
+.logo-j {
+    font-size: 40px; /* Ajuste para visualização clara */
+    font-weight: bold;
+    color: blue; /* Cor principal do texto */
+    position: relative;
+    text-shadow: 
+        1px 0 0 black, -1px 0 0 black, /* sombras horizontais */
+        0 1px 0 black, 0 -1px 0 black, /* sombras verticais */
+        1px 1px black, -1px -1px black, /* sombras diagonais */
+        1px -1px black, -1px 1px black; /* mais sombras diagonais */
 }
 
-/* Estilos para o título principal */
-h1 {
-    font-size: 4.5em; /* Tamanho maior para o título principal */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto para efeito 3D */
-    margin-bottom: 100px; /* Espaçamento abaixo do título */
+.logo-j::before {
+    content: 'J'; /* Repete o conteúdo do J */
+    position: absolute;
+    top: -3px; /* Ajusta para criar o efeito de sombra/3D */
+    left: -3px; /* Ajusta para criar o efeito de sombra/3D */
+    color: transparent; /* Torna a cor transparente */
+    font-size: 40px;
+    font-weight: bold;
+    background: linear-gradient(to right, #00FFFF, black); /* Gradiente de azul ciano para preto */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    z-index: -1; /* Coloca a sombra atrás do texto */
 }
 
-/* Estilos para subtítulos em geral */
-h2 {
-    font-size: 3.5em; /* Tamanho maior para o subtítulo */
-    color: var(--effect-text-color);
-    text-align: right; /* Centraliza o texto */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto sutil */
-    margin-bottom: 40px; /* Espaçamento abaixo do subtítulo */
-    min-height: 400px;
+.logo-j::after {
+    content: 'J'; /* Repete o conteúdo do J */
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #00FFFF; /* Cor azul ciano para o texto */
+    font-size: 40px;
+    font-weight: bold;
+    z-index: 1; /* Garante que o texto azul fique na frente */
 }
 
-p {
-    font-size: 1.25em; /* Tamanho de fonte maior para parágrafos */
-    line-height: 1.8; /* Espaçamento de linha aumentado para melhor leitura */
-    margin-bottom: 20px; /* Aumento do espaçamento após parágrafos */
+.typewriter {
+    padding: 80px; /* Adiciona espaço interno */
+    margin: 40px 4; /* Adiciona uma margem consistente em cima e embaixo */
+    min-height: 400px; /* Altura mínima para evitar mudanças no layout */
+    width: 100%; /* Ocupa a largura total disponível */
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos no cálculo da width/height */
 }
 
-footer {
-    background-color: var(--background-color-light);
-    color: var(--text-color-light);
-    padding: 20px; /* Padding aumentado para um melhor visual */
-    font-size: 1.2em; /* Tamanho maior para o texto do rodapé */
-    text-align: center; /* Centralizando o texto do rodapé */
+#lang-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
 }
 
-body.dark-mode footer {
-    background-color: var(--background-color-dark);
-    color: var(--text-color-dark);
+#flag-icon {
+    width: 50px; /* ou qualquer outro tamanho que se encaixe melhor no seu design */
 }
 
-.container > span {
-    font-size: 1em; /* Ajusta o tamanho da fonte para texto dentro de containers */
+section {
+    min-height: 100vh; /* Define a altura mínima de cada seção para 100% da altura da viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    padding: 0 60px; /* Adiciona um pouco de padding lateral para evitar que o conteúdo toque as bordas */
 }
 
-/* Estilos específicos para as novas seções */
-#about, #experience, #habilidades, #projects, #contact {
-    background-color: var(--background-color-light);
-    padding: 60px 20px;
-    border-radius: 15px;
-    margin-bottom: 40px;
+.container {
+    width: 100%; /* Garante que o container use toda a largura disponível */
+    max-width: 1200px; /* Limita a largura máxima para grandes telas */
+    margin: 0 auto; /* Centraliza o container horizontalmente */
 }
 
-body.dark-mode #about, body.dark-mode #experience, body.dark-mode #habilidades, body.dark-mode #projects, body.dark-mode #contact {
-    background-color: var(--background-color-dark);
+/* Ajusta o espaçamento para cabeçalhos de seção para criar uma separação visual clara */
+.section-heading {
+    margin: 20px 0; /* Adiciona espaço vertical antes e depois do título da seção */
+    font-size: 2.5rem; /* Aumenta o tamanho da fonte para dar destaque */
 }
 
-/* Estilos para tablets */
+.section-subheading {
+    color: #f1f1f1; /* Uma cor mais suave para os subtítulos */
+    margin-bottom: 40px; /* Espaço extra abaixo do subtítulo para separar do conteúdo */
+}
+
+/* Media queries para responsividade */
+@media (max-width: 1300px) {
+    .content {
+        margin-left: 80px; /* Ajuste para garantir que o conteúdo não fique atrás da sidebar */
+    }
+}
+
+/* Estilos gerais para o modo claro */
+.light-mode {
+    background-color: white;
+    color: black;
+}
+
+/* Estilos gerais para o modo escuro */
+.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+/* Estilos específicos para seções com fundo claro no modo escuro */
+.dark-mode .bg-light {
+    background-color: #2c2c2c;
+    color: #f1f1f1;
+}
+
+/* Ajustes para texto muted no modo escuro */
+.dark-mode .text-muted {
+    color: #f1f1f1;
+}
+
+/* Ajustes para headings e parágrafos no modo escuro */
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode p,
+.dark-mode .section-subheading {
+    color: #f1f1f1;
+}
+
+/* Estilos responsivos para diferentes tamanhos de tela */
+
 @media (max-width: 768px) {
-    body, html {
-        font-size: 14px; /* Diminuir a fonte geral */
+    .content {
+        margin-left: 0; /* Remove a margem lateral para economizar espaço */
+        padding-top: 5px; /* Reduz o padding superior */
     }
-    .navbar-brand, .nav-link {
-        font-size: 1em; /* Ajustar o tamanho da fonte da navegação */
+
+    .sidebar {
+        position: fixed; /* Mantém a sidebar fixa no topo */
+        top: 0;
+        left: 0;
+        width: 100%; /* A sidebar agora se estende por toda a largura da tela */
+        height: 50px; /* Reduz a altura da sidebar para torná-la mais compacta */
+        background-color: #111; /* Define uma cor de fundo visível */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center; /* Centraliza os itens verticalmente */
+        z-index: 1000; /* Garante que a barra fique acima de outros conteúdos */
+        padding: 0 10px; /* Padding horizontal para manter os itens alinhados */
     }
-    header, .navbar {
-        padding: 10px; /* Reduzir o preenchimento */
+
+    .nav-link, .nav-item {
+        font-size: 12px; /* Reduz o tamanho da fonte dos links para economizar espaço */
+        padding: 5px 0; /* Padding vertical ajustado */
     }
-    h1, h2 {
-        font-size: 2.5em; /* Reduzir o tamanho das cabeçalhos */
-        margin-bottom: 50px;
-    }
-    main, #about, #experience, #habilidades, #projects, #contact {
-        padding: 20px; /* Reduzir o preenchimento nas principais seções */
+
+    .logo-j {
+        font-size: 18px; /* Reduz o tamanho do logo para se adequar à nova altura da topbar */
     }
 }
 
-/* Estilos para celulares */
-@media (max-width: 480px) {
-    .navbar-brand, .nav-link {
-        font-size: 0.8em; /* Mais ajustes para navegação */
+@media (max-width: 576px) {
+    .sidebar {
+        height: 40px; /* Torna a sidebar ainda mais compacta em dispositivos muito pequenos */
     }
-    h1, h2 {
-        font-size: 2em; /* Tamanhos menores para títulos */
+
+    .navbar-brand {
+        font-size: 14px; /* Reduz ainda mais o tamanho do logo */
     }
-    main, #about, #experience, #habilidades, #projects, #contact {
-        padding: 10px;
-    }
-    .typewriter h1 {
-        font-size: 1.2em; /* Ajustar tamanhos de fonte para efeitos de digitação */
+
+    .nav-link, .nav-item {
+        font-size: 10px; /* Reduz o tamanho da fonte dos links para melhor ajuste */
     }
 }
+
